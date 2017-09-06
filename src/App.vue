@@ -1,15 +1,37 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <v-header></v-header>
+    <v-left-bar class="leftBar"></v-left-bar>
+    <router-view class="main content"></router-view>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import VHeader from 'components/header/Header'
+  import VLeftBar from 'components/leftBar/LeftBar'
+  export default {
+    name: 'app',
+    components: {
+      'v-header': VHeader,
+      'v-left-bar': VLeftBar
+    }
+  }
 </script>
 
-<style>
-
+<style scoped lang="stylus" rel="stylesheet/stylus">
+  .leftBar
+    position absolute
+    width 240px
+    height 100%
+    left 0
+    top 0
+    overflow auto
+  .main.content
+    position absolute
+    width 100%
+    height 100%
+    left 0
+    top 0
+    padding 60px 0 0 255px
+    overflow auto
 </style>
