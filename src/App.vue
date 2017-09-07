@@ -45,6 +45,6 @@
     height 100%
     left 0
     top 0
-    padding 60px 0 0 215px
+    padding 60px 15px 0 215px
     overflow auto
 </style>
