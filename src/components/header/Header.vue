@@ -1,6 +1,9 @@
 <template>
   <div>
     <div class="nav">
+      <div class="logo">
+        Contact管理系统
+      </div>
       <div class="userInfo">
         <Dropdown>
           <a href="javascript:void(0)">
@@ -8,7 +11,6 @@
             <Icon type="arrow-down-b"></Icon>
           </a>
           <DropdownMenu slot="list">
-            <DropdownItem>编辑信息</DropdownItem>
             <DropdownItem @click.native="logout()">退出登录</DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -52,6 +54,11 @@
     width 100%
     height 40px
     background $header-background
+    .logo
+      line-height 40px
+      padding 0 15px
+      color #fff
+      float left
     .userInfo
       line-height 40px
       float right

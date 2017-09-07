@@ -5,6 +5,10 @@ const ContactCreated = () => import('@/components/contacts/ContactCreated')
 
 export default [
   {
+    path: '/',
+    redirect: '/home'
+  },
+  {
     path: '/home',
     name: 'Home',
     component: Home

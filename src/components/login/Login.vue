@@ -3,10 +3,10 @@
     <Form class="formLogin" ref="formLogin" :model="formLogin" :rules="ruleLogin" :label-width="80">
       <h1>contacts管理系统</h1>
       <FormItem label="邮箱" prop="email">
-        <Input type="text" v-model="formLogin.email" @keyup.13.native="handleSubmit('formLogin')"></Input>
+        <Input v-model.trim="formLogin.email" @keyup.13.native="handleSubmit('formLogin')"></Input>
       </FormItem>
       <FormItem label="密码" prop="password">
-        <Input type="password" v-model="formLogin.password" @keyup.13.native="handleSubmit('formLogin')"></Input>
+        <Input type="password" v-model.trim="formLogin.password" @keyup.13.native="handleSubmit('formLogin')"></Input>
       </FormItem>
       <FormItem>
         <Button type="primary" @click="handleSubmit('formLogin')" class="pull-right">提交</Button>
@@ -19,6 +19,7 @@
   import {mapActions, mapState} from 'vuex'
 
   export default {
+    name: 'login',
     data() {
       return {
         formLogin: {
