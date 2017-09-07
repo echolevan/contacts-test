@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <v-header></v-header>
-    <v-left-bar class="leftBar"></v-left-bar>
+    <v-header v-if="isLogin"></v-header>
+    <v-left-bar class="leftBar" v-if="isLogin"></v-left-bar>
     <router-view class="main content"></router-view>
   </div>
 </template>
@@ -9,11 +9,28 @@
 <script>
   import VHeader from 'components/header/Header'
   import VLeftBar from 'components/leftBar/LeftBar'
+  import {mapActions, mapState} from 'vuex'
+
   export default {
     name: 'app',
     components: {
       'v-header': VHeader,
       'v-left-bar': VLeftBar
+    },
+    computed: {
+      ...mapState([
+        'isLogin'
+      ])
+    },
+    methods: {
+      ...mapActions([
+        'toSetLogin'
+      ])
+    },
+    mounted() {
+      if (!this.isLogin) {
+        this.$router.push('/login')
+      }
     }
   }
 </script>
@@ -26,6 +43,7 @@
     left 0
     top 0
     overflow auto
+
   .main.content
     position absolute
     width 100%
