@@ -42,14 +42,19 @@
       ])
     },
     mounted() {
-      if (this.isLogin) {
-        this.$router.push('/home')
-      }
+      this.__check()
     },
     methods: {
       ...mapActions([
-        'toSetLogin'
+        'toSetLogin', 'checkIsLogin'
       ]),
+      __check() {
+        this.$store.dispatch('checkIsLogin').then(res => {
+          this.$router.push('/home')
+        }).catch(err => {
+          console.log(err)
+        })
+      },
       handleSubmit(name) {
         this.$refs[name].validate((valid) => {
           if (valid) {

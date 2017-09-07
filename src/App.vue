@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <v-header v-if="isLogin"></v-header>
-    <v-left-bar class="leftBar" v-if="isLogin"></v-left-bar>
+    <v-header v-if="isLogin && $route.name !== '404'"></v-header>
+    <v-left-bar class="leftBar" v-if="isLogin && $route.name !== '404'"></v-left-bar>
     <router-view class="main content"></router-view>
   </div>
 </template>
@@ -26,11 +26,6 @@
       ...mapActions([
         'toSetLogin'
       ])
-    },
-    mounted() {
-      if (!this.isLogin) {
-        this.$router.push('/login')
-      }
     }
   }
 </script>
@@ -50,6 +45,6 @@
     height 100%
     left 0
     top 0
-    padding 60px 0 0 255px
+    padding 60px 0 0 215px
     overflow auto
 </style>
